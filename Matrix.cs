@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Console;
 
 namespace Matrix
 {
@@ -151,8 +150,9 @@ namespace Matrix
       {
         for (int j = 0; j < colCount; j++)
         {
-          Console.WriteLine(Math.Round(matrix[i, j], precision));
+          Console.Write($"{Math.Round(matrix[i, j], precision)}\t");
         }
+        Console.WriteLine();
       }
     }
     private void SetValue(int row, int col, double value)

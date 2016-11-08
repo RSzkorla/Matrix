@@ -186,6 +186,31 @@ namespace Matrix
       }
       return mat;
     }
+    public static Matrix operator * ( Matrix lmat, Matrix rmat)
+    {
+
+      if (lmat.colCount != rmat.rowCount)
+      {
+        throw new ArrayTypeMismatchException("Dimensions are not correct");
+      }
+
+      Matrix temp = new Matrix(lmat.rowCount, rmat.colCount);
+
+      for (int i = 0; i < temp.rowCount; ++i)
+      {
+        for (int j = 0; j < temp.colCount; ++j)
+        {
+          double sum =0 ;
+          for (int k = 0; k < lmat.colCount; ++k)
+          {
+            sum += lmat[i, k] * rmat[k, j];
+          }
+          temp[i, j] = sum;
+        }
+      }
+      return temp;
+    }
+    
     #endregion
 
     #region Functions

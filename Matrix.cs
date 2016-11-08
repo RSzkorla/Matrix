@@ -236,7 +236,30 @@ namespace Matrix
         Console.WriteLine();
       }
     }
-
+    public void Transposition(out Matrix matrix)
+    {
+      Matrix temp = new Matrix(this.colCount, this.rowCount);
+      for (int i = 0; i < temp.rowCount; i++)
+      {
+        for (int j = 0; j < temp.colCount; j++)
+        {
+          temp[i, j] = this[j, i];
+        }
+      }
+      matrix=temp;
+    }
+    public Matrix Transposition()
+    {
+      Matrix temp = new Matrix(this.colCount, this.rowCount);
+      for (int i = 0; i < temp.rowCount; i++)
+      {
+        for (int j = 0; j < temp.colCount; j++)
+        {
+          temp[i, j] = this[j, i];
+        }
+      }
+      return temp;
+    }
 
     private void SetValue(int row, int col, double value)
     {

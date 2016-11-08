@@ -236,7 +236,7 @@ namespace Matrix
         Console.WriteLine();
       }
     }
-    public void Transposition(out Matrix matrix)
+    public void GetTranspositioned(out Matrix matrix)
     {
       Matrix temp = new Matrix(this.colCount, this.rowCount);
       for (int i = 0; i < temp.rowCount; i++)
@@ -248,7 +248,7 @@ namespace Matrix
       }
       matrix=temp;
     }
-    public Matrix Transposition()
+    public Matrix GetTranspositioned()
     {
       Matrix temp = new Matrix(this.colCount, this.rowCount);
       for (int i = 0; i < temp.rowCount; i++)
@@ -259,6 +259,23 @@ namespace Matrix
         }
       }
       return temp;
+    }
+
+    public void Transposition()
+    {
+      Matrix temp = new Matrix(this.colCount, this.rowCount);
+      for (int i = 0; i < temp.rowCount; i++)
+      {
+        for (int j = 0; j < temp.colCount; j++)
+        {
+          temp[i, j] = this[j, i];
+        }
+      }
+
+      this.matrix = new double[temp.rowCount, temp.colCount];
+      this.rowCount = temp.rowCount;
+      this.colCount = temp.colCount;
+      this.matrix = temp.matrix;
     }
 
     private void SetValue(int row, int col, double value)

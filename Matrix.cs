@@ -141,6 +141,51 @@ namespace Matrix
       }
       return temp;
     }
+
+    public static Matrix operator *(Matrix mat, double l)
+    {
+      for (int i = 0; i < mat.rowCount; i++)
+      {
+        for (int j = 0; j < mat.colCount; j++)
+        {
+          mat.matrix[i, j] = mat.matrix[i, j] * l;
+        }
+      }
+      return mat;
+    }
+    public static Matrix operator *(double l, Matrix mat)
+    {
+      for (int i = 0; i < mat.rowCount; i++)
+      {
+        for (int j = 0; j < mat.colCount; j++)
+        {
+          mat.matrix[i, j] = mat.matrix[i, j] * l;
+        }
+      }
+      return mat;
+    }
+    public static Matrix operator /(Matrix mat, double l)
+    {
+      for (int i = 0; i < mat.rowCount; i++)
+      {
+        for (int j = 0; j < mat.colCount; j++)
+        {
+          mat.matrix[i, j] = mat.matrix[i, j] / l;
+        }
+      }
+      return mat;
+    }
+    public static Matrix operator /(double l, Matrix mat)
+    {
+      for (int i = 0; i < mat.rowCount; i++)
+      {
+        for (int j = 0; j < mat.colCount; j++)
+        {
+          mat.matrix[i, j] = mat.matrix[i, j] / l;
+        }
+      }
+      return mat;
+    }
     #endregion
 
     #region Functions

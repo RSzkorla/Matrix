@@ -22,6 +22,17 @@ namespace Matrix
         SetValue(row, col, value);
       }
     }
+    public double det {
+      get
+      {
+        return det;
+      }
+      private set
+      {
+        SetDet();
+      } }
+
+
 
     private Random rng = new Random();
     #region Constructors
@@ -225,9 +236,15 @@ namespace Matrix
         Console.WriteLine();
       }
     }
+
+
     private void SetValue(int row, int col, double value)
     {
       matrix[row, col] = value;
+    }
+    private void SetDet()
+    {
+      throw new NotImplementedException();
     }
     #endregion
   }
